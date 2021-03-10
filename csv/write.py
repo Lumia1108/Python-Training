@@ -1,8 +1,7 @@
 import os, csv
-
+path = os.getcwd()
+os.chdir(path+'\\csv')
 def opencsv(filename):
-    path = os.getcwd()
-    os.chdir(path+'\\csv')
     f = open(filename, 'r', encoding='utf-8')
     reader = csv.reader(f)
     result = []
@@ -12,8 +11,6 @@ def opencsv(filename):
     return result
 
 def writecsv(filename, obj):
-    path = os.getcwd()
-    os.chdir(path+'\\csv')
     f = open(filename, 'w', encoding='utf-8', newline='')
     csvobject = csv.writer(f, delimiter=',')
     csvobject.writerows(obj)
