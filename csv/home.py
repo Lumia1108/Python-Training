@@ -26,6 +26,7 @@ def strtonum(item):
     return item
 
 apt = strtonum(opencsv('home_price.csv'))
+writecsv('home_price.csv', apt)
 
 # 시군구 단지명 거래금액(만원) 출력
 for i in apt[:6]:
