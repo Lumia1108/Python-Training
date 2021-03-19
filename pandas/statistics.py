@@ -26,3 +26,15 @@ print(df.sex.value_counts())
 
 ## 두 집단 평균 구하기
 print(df.groupby(df.sex).mean())
+
+from scipy import stats
+
+male = df.income[df.sex == 'm']
+female = df.income[df.sex == 'f']
+
+ttest_result = stats.ttest_ind(male, female)
+
+if ttest_result[1] > 0.05:
+    print('p-value는 %f로 95%% 수준에서 유의하지 않음' % ttest_result[1])
+else:
+    print('p-value는 %f로 95%% 수준에서 유의함' % ttest_result[1])
